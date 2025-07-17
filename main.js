@@ -8,6 +8,7 @@ Creare una funzione per capire se la parola inserita è palindroma */
 //Potrei utilizzare un for che gira al contrario, si salva la parola e poi aggiungere un if
 
 let word = 'ciao';
+/* 
 let reversedWord = '';
 for (let i = word.length - 1; i >= 0; i--){
      reversedWord = reversedWord + word[i];
@@ -21,4 +22,35 @@ if (word == reversedWord) {
 } else {
      console.log('Le parole non sono palindrome');
 }
+*/
+//definisco una funzione
+function palindroma(word) {
+    let reversedWord = '';
+    let ispalindroma = '';
+    for (let i = word.length - 1; i >= 0; i--){
+        reversedWord = reversedWord + word[i];
+        
+    }
+   
+    if (word == reversedWord) {
+        ispalindroma = true;
+       // console.log('Le parole sono palindrome');
+        
+    } else {
+        //console.log('Le parole non sono palindrome');
+        ispalindroma = false;
+    }
 
+    return ispalindroma
+}
+
+//utilizzo la funzione
+
+const word_palindroma = palindroma('anna')
+console.log(word_palindroma);
+
+//Utilizzo della funzione con un prompt
+
+let parola = prompt('Inserisci una parola:').toLowerCase();
+console.log(parola);
+console.log(palindroma(parola));
