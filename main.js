@@ -73,21 +73,22 @@ Dichiariamo chi ha vinto.
 //Se l'utente sceglie, alla fine ci deve essere un promp,
 // uno per la scelta tra pari/dispari e uno per la scelta del numero da 1a5
 //supponiamo per il momento di avere già queste variabili che chiamerò pari_dispari e numb
-let pari_dispari = 'pari';
-let numb = 4; 
+//let pari_dispari = 'pari';
+//let numb = 4; 
 //Per generare un numero random tra 1 e 5 attraverso una funzione, la cerco: 
 function getRandomInt() {
   return Math.floor(Math.random() * 5) + 1;
 }
-//definisco una funzione che assume il valore 'random' così da averlo sottomano 
-const numb_random = getRandomInt();
-console.log(numb_random);
+//definisco una funzione che assume il valore 'random' così da averlo sottomano
+//const numb_random = getRandomInt();
+//console.log(numb_random);
 //sommare i due numeri
 
-let sum = numb + numb_random; 
-console.log(sum);
+//let sum = numb + numb_random;
+//console.log(sum);
 
 //Stabilire se la somma dei due numeri è pari o dispari
+/* 
 let ispari = '';
 if (sum % 2 == 0) {
     console.log('La somma è pari');
@@ -97,9 +98,10 @@ if (sum % 2 == 0) {
     console.log('La somma è dispari');
     ispari = false;
 }
-
+*/
 //Per dichiarare chi ha vinto, devo verificare che se l'utente ha scelto pari e la somma è pari allora ha vinto,
 // altrimenti ha perso e vince il pc
+/* 
 if (pari_dispari == 'pari' && ispari == true) {
     console.log('Ha vinto utente');
     
@@ -110,6 +112,7 @@ else {
     console.log('Ha vinto il pc');
     
 }
+*/
 
 //Devo creare una funzione che definisca se la somma dei numeri è pari o dispari 
 function sum_pari_dispari(numb, numb_random) {
@@ -121,4 +124,31 @@ function sum_pari_dispari(numb, numb_random) {
     } else {
         ispari = false;
     }
+    return ispari
+}
+
+//Riscrivo l'esercizio in modo ordinato, utilizzando le funzioni definite
+
+let pari_dispari = prompt('Scrivi se preferisci pari o dispari').toLowerCase();
+console.log(`L'utente ha scelto:  ${pari_dispari}`);
+
+let numb = Number(prompt('Inserici un numero intero tra 1 e 5'));
+console.log(`Il numero inserito dall'utente è ${numb}`);
+
+const numb_random = getRandomInt();
+console.log(`Il numero random del pc è:  ${numb_random}`);
+
+const èpari = sum_pari_dispari(numb, numb_random);
+console.log(`è vero che la somma dei due numeri è pari?  ${èpari}`);
+
+
+if (pari_dispari == 'pari' && èpari == true) {
+    console.log('Ha vinto utente');
+    
+} else if (pari_dispari == 'dispari' && èpari == false) {
+    console.log('Ha vinto utente');
+}
+else {
+    console.log('Ha vinto il pc');
+    
 }
